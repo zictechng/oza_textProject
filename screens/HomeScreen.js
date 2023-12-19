@@ -12,6 +12,10 @@ import ListItem from '../components/ListItem';
 import { AuthContext } from '../context/AuthContext';
 import course1 from '../assets/images/halo-infinite.jpeg';
 import course2 from '../assets/images/diablo-4.jpeg';
+import market_image from '../assets/images/digital_mrt.png';
+import money_image from '../assets/images/make_money.jpg';
+import website_image from '../assets/images/website.jpg';
+import seo_image from '../assets/images/seo_image.png';
 
  const HomeScreen = ({navigation}) =>{
 
@@ -78,22 +82,22 @@ import course2 from '../assets/images/diablo-4.jpeg';
             <View style={{flex:2}}>
                
                 <View style={{justifyContent:'center', alignItems:'center'}}>
-                <Image source={course1} style={{borderRadius:10, width:150, height:150}} />
+                <Image source={website_image} style={{borderRadius:10, width:150, height:150}} />
                 </View>
                 
                 <View style={{justifyContent:'center', alignItems:'center'}}>
-                    <Text style={{fontSize:14, color:'#444'}}> Digital Marketing </Text>
-                    <Text style={{fontSize:14, color:'#aaa'}}> Promote your business from your home  </Text>
+                    <Text style={{fontSize:14, color:'#444'}}>Website Development </Text>
+                    <Text style={{fontSize:14, color:'#aaa'}}>How to develop a professional website without coding  </Text>
                 </View>
             </View>
             <View style={{flex:2,}}>
                 <View style={{justifyContent:'center', alignItems:'center'}}>
-                    <Image source={course2} style={{borderRadius:10, width:150, height:150}} />
+                    <Image source={seo_image} style={{borderRadius:10, width:150, height:150}} />
                 </View>
                 
                 <View style={{justifyContent:'center', alignItems:'center'}}>
-                    <Text style={{fontSize:14, color:'#444'}}> 1M in 30days </Text>
-                    <Text style={{fontSize:14, color:'#aaa'}}> How you can make millions in just 30 days  </Text>
+                    <Text style={{fontSize:14, color:'#444'}}>SEO Service in 30days </Text>
+                    <Text style={{fontSize:14, color:'#aaa'}}>Become a professional seo expert in just 30days  </Text>
                 </View>
             </View>
         </View>
@@ -103,22 +107,22 @@ import course2 from '../assets/images/diablo-4.jpeg';
             <View style={{flex:2}}>
                
                 <View style={{justifyContent:'center', alignItems:'center'}}>
-                <Image source={course1} style={{borderRadius:10, width:150, height:150}} />
+                <Image source={market_image} style={{borderRadius:10, width:150, height:150}} />
                 </View>
                 
                 <View style={{justifyContent:'center', alignItems:'center'}}>
-                    <Text style={{fontSize:14, color:'#444'}}> Digital Marketing </Text>
-                    <Text style={{fontSize:14, color:'#aaa'}}> Promote your business from your home  </Text>
+                    <Text style={{fontSize:14, color:'#444'}}>Digital Marketing </Text>
+                    <Text style={{fontSize:14, color:'#aaa'}}>How you can promote your business from your home  </Text>
                 </View>
             </View>
             <View style={{flex:2,}}>
                 <View style={{justifyContent:'center', alignItems:'center'}}>
-                    <Image source={course2} style={{borderRadius:10, width:150, height:150}} />
+                    <Image source={money_image} style={{borderRadius:10, width:150, height:150}} />
                 </View>
                 
                 <View style={{justifyContent:'center', alignItems:'center'}}>
-                    <Text style={{fontSize:14, color:'#444'}}> 1M in 30days </Text>
-                    <Text style={{fontSize:14, color:'#aaa'}}> How you can make millions in just 30 days  </Text>
+                    <Text style={{fontSize:14, color:'#444'}}>1M in 30days </Text>
+                    <Text style={{fontSize:14, color:'#aaa'}}>How you can make millions in just 30 days  </Text>
                 </View>
             </View>
         </View>
