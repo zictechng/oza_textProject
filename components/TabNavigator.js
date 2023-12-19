@@ -49,7 +49,7 @@ const TabNavigator = () => {
         <Tab.Screen name="HomeTab" component={HomeStack} 
         options={({route}) => ({
             tabBarStyle:{display: getTabBarVisibility(route),
-                backgroundColor:'#ad40af'},
+                backgroundColor:'#1D2667'},
             tabBarIcon:({color, size}) =>(
                 <Ionicons name="home-outline" color={color} size={size} />
             ),

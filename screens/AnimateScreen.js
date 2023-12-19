@@ -1,13 +1,22 @@
-import React, {useState} from 'react';
-import { View, Text, Dimensions, StyleSheet, TextInput, Pressable,ScrollView } from 'react-native';
+import React, {useContext, useState} from 'react';
+import { View, Text, Dimensions, StyleSheet, TextInput, Pressable,ScrollView, ActivityIndicator, Alert, KeyboardAvoidingView, Keyboard, TouchableWithoutFeedback } from 'react-native';
 import styles from '../style';
 import Svg, {Image, Ellipse, ClipPath} from 'react-native-svg'
 import Animated, {useSharedValue, useAnimatedStyle, interpolate, withTiming, withDelay, runOnJS, withSequence, withSpring} from 'react-native-reanimated';
 import { StatusBar } from 'expo-status-bar';
+import { AuthContext } from '../context/AuthContext';
+import IsValidEmail from '../components/checkEmailFormat';
 
-export default function AnimateScreen() {
+
+export default function AnimateScreen({navigation}) {
 
   const { height, width } = Dimensions.get("window");
+
+  const {login, isLoading, isBtnLoading, isButtonDisable} = useContext(AuthContext)
+
+  const [email, setEmail] = useState(null);
+  const[password, setPassword] = useState(null);
+
 
   const imagePosition = useSharedValue(1);
   const formButtonScale = useSharedValue(1);
@@ -80,8 +89,29 @@ export default function AnimateScreen() {
     const loginUser = () =>{
       console.log("login Button Called ")
     }
+
+    const UserLogin = () =>{
+      navigation.navigate('Login')
+      // const arrPassword = password;
+      // const arrEmail = email;
+      // //console.log('The length is', arrPassword);
+      // // Check if input is valid
+      // if (arrPassword == 0 || arrPassword == null || arrEmail == 0 || arrEmail == null) {
+      //     Alert.alert("Please enter email address and password")
+      //     return
+      //     }
+      // if(!IsValidEmail(arrEmail)){
+      //     Alert.alert('Please enter a valid email')
+      //      return
+      // }
+      // console.log("User login ", arrEmail, arrPassword)
+      
+      // login(email, password)
+  }
   return (
-    <Animated.View style={styles.container}>
+      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{flex:1, backgroundColor:'#FFF'}}>
+               <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+               <Animated.View style={styles.container}>
       <StatusBar style="light" />
         <Animated.View style={[StyleSheet.absoluteFill, imageAnimatedStyle ]}>
           <Svg height={height +100} width={width}>
@@ -122,40 +152,90 @@ export default function AnimateScreen() {
 
           {/* Form activities comes here */}
           
-          <Animated.View style={[styles.formInputContainer, formAnimatedStyle, {marginTop:isRegisterring? -10 : 20, marginBottom:isRegisterring? 20 : 50  }]}>
+          <Animated.View style={[styles.formInputContainer, formAnimatedStyle, {marginTop:isRegisterring? -50 : -60, marginBottom:isRegisterring? 20 : 50  }]}>
             {isRegisterring ? 
             // registration form element here
            
-            <ScrollView showsVerticalScrollIndicator={false}>
-              <TextInput placeholder='Email' placeholderTextColor='#000' style={styles.textInput} />
-              {isRegisterring && 
-              <TextInput placeholder='Full Name' placeholderTextColor='#000' style={styles.textInput} />
-              }
-              <TextInput placeholder='Password' placeholderTextColor='#000' style={styles.textInput} />
+            // <ScrollView showsVerticalScrollIndicator={false}>
+            //   <TextInput placeholder='Email' placeholderTextColor='#000' style={styles.textInput} />
+            //   {isRegisterring && 
+            //   <TextInput placeholder='Full Name' placeholderTextColor='#000' style={styles.textInput} />
+            //   }
+            //   <TextInput placeholder='Password' placeholderTextColor='#000' style={styles.textInput} />
                 
-              <Animated.View style={[styles.formButton, formButtonAnimatedStyle]}>
-                <Pressable onPress={() =>{formButtonScale.value = withSequence(withSpring(1.5), withSpring(1)), registerUser()}}>
-                  {/* <Text style={styles.buttonText}>{isRegisterring ? "Register" : "Login"}</Text> */}
-                  <Text style={styles.buttonText}>Register</Text>
-                </Pressable>
-                </Animated.View>
-              </ScrollView>
+            //   <Animated.View style={[styles.formButton, formButtonAnimatedStyle]}>
+            //     <Pressable onPress={() =>{formButtonScale.value = withSequence(withSpring(1.5), withSpring(1)), registerUser()}}>
+            //       {/* <Text style={styles.buttonText}>{isRegisterring ? "Register" : "Login"}</Text> */}
+            //       <Text style={styles.buttonText}>Register</Text>
+            //     </Pressable>
+            //     </Animated.View>
+            //   </ScrollView>
+              <>
+              <View style={{marginHorizontal:20, justifyContent:'center', alignItems:'center', marginBottom:20}}>
+                
+                <Text style={{fontSize: 15, fontWeight:'500', color:'#aaa', letterSpacing:0.5}}>It's free to register and easy to join! registration takes just only three minutes. </Text>
+                  </View>
+                  <View>
+                  <Animated.View style={[styles.formButton, formButtonAnimatedStyle]}>
+                    <Pressable onPress={() =>{formButtonScale.value = withSequence(withSpring(1.5), withSpring(1)), navigation.replace('Register')}}>
+                      <Text style={styles.buttonText}>{isRegisterring ? "Register" : 'Login'}</Text>
+                    </Pressable>
+                  </Animated.View>
+                  </View>
+                  {/* <View style={{justifyContent:'center', alignItems:'center', margin:5}}><Text style={{fontSize:14, color:'#444'}}>I have an account</Text></View>
+               */}
+              </>
+            
                 : 
               // login form element here
-              <View>
-                <TextInput placeholder='Email' placeholderTextColor='#000' style={styles.textInput} />
-                <TextInput placeholder='Password' placeholderTextColor='#000' style={styles.textInput} />
-                <Animated.View style={[styles.formButton, formButtonAnimatedStyle]}>
-                  <Pressable onPress={() =>formButtonScale.value = withSequence(withSpring(1.5), withSpring(1))}>
-                    <Text style={styles.buttonText}>{isRegisterring ? "Register" : "Login"}</Text>
-                  </Pressable>
-                  </Animated.View>
-              </View>
+              // <View>
+              //   <TextInput 
+              //   placeholder='Email' 
+              //   placeholderTextColor='#000' 
+              //   style={styles.textInput} 
+              //   keyboardType='email-address'
+              //   value={email}
+              //   onChangeText={text =>setEmail(text)} 
+              //   />
+              //   <TextInput 
+              //   placeholder='Password' 
+              //   placeholderTextColor='#000' 
+              //   style={styles.textInput}
+              //   inputType="password"  
+              //   value={password}
+              //   onChangeText={text =>setPassword(text)}
+              //   />
+              //   <Animated.View style={[styles.formButton, formButtonAnimatedStyle]}>
+              //     <Pressable onPress={() =>{formButtonScale.value = withSequence(withSpring(1.5), withSpring(1)), UserLogin()}}>
+              //       <Text style={styles.buttonText}>{isRegisterring ? "Register" : isBtnLoading ? <ActivityIndicator  color='#fff' size={25}/> : 'Login'}</Text>
+              //     </Pressable>
+              //     </Animated.View>
+              // </View>
+              <>
+                <View style={{marginHorizontal:15, justifyContent:'center', alignItems:'center', marginBottom: 20}}>
+                
+                <Text style={{fontSize: 15, fontWeight:'500', color:'#aaa', letterSpacing:0.5}}>To login, you need valid email and your registered password details.</Text>
+                </View>
+                  <View>
+                    <Animated.View style={[styles.formButton, formButtonAnimatedStyle]}>
+                      <Pressable onPress={() =>{formButtonScale.value = withSequence(withSpring(1.5), withSpring(1)), navigation.replace('Login')}}>
+                        <Text style={styles.buttonText}>{isRegisterring ? "Register" : 'Login'}</Text>
+                      </Pressable>
+                    </Animated.View>
+                  </View>
+                  {/* <View style={{justifyContent:'center', alignItems:'center', margin:5}}><Text style={{fontSize:14, color:'#444'}}>Forget login details</Text></View>
+               */}
+              </>
+              
             }
             
            </Animated.View>   
       </View>
 
-     </Animated.View>
+              </Animated.View>
+               </TouchableWithoutFeedback>
+               
+      </KeyboardAvoidingView>
+   
   );
 }

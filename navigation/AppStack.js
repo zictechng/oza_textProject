@@ -25,7 +25,7 @@ const AppStack = () => {
     //     <Stack.Screen component={HomeScreen} name="Home"/>
         
     // </Stack.Navigator>
-    // drawerContent={props =><CustomDrawer {...props}/>} is for the the customization of the drawer menu bar
+    // drawerContent={props =><CustomDrawer {...props}/>} is for the customization of the drawer menu bar
     <Drawer.Navigator drawerContent={props =><CustomDrawer {...props}/>} 
         screenOptions={{headerShown:false, 
         drawerActiveBackgroundColor: '#aa18ea',

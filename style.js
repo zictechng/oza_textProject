@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     },
 
     button:{
-        backgroundColor: 'rgba(123,104,238,0.8)',
+        backgroundColor: '#1D2667',
         height:55,
         alignItems:'center',
         borderRadius:35,
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     },
 
     formButton:{
-        backgroundColor: 'rgba(123,104,238,0.8)',
+        backgroundColor: '#1D2667',
         height:55,
         alignItems:'center',
         borderRadius:35,

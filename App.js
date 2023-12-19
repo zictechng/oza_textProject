@@ -8,8 +8,8 @@ import OzaImg from'./assets/accelerate.svg'
 import { AuthContext, AuthProvider } from './context/AuthContext';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import AppStack from './navigation/AppStack';
-import AuthStack from './navigation/AuthStack';
+//import AppStack from './navigation/AppStack';
+//import AuthStack from './navigation/AuthStack';
 import AppNav from './navigation/AppNav';
 
 const Stack = createNativeStackNavigator();

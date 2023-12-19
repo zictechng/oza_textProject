@@ -15,20 +15,20 @@ export default function CustomSwitch({
         onSelectSwitch(value)
         }
   return (
-    <View style={{height:44, width:'100%',backgroundColor:'#e4e4e4', borderRadius:10,borderColor:'#ad40af',flexDirection:'row', justifyContent:'center'}}>
+    <View style={{height:44, width:'100%',backgroundColor:'#e4e4e4', borderRadius:10,borderColor:'#1D2667',flexDirection:'row', justifyContent:'center'}}>
       <TouchableOpacity
         activeOpacity={1}
         onPress={() => updateSwitchData(1)}
         style={{
             flex:1,
-            backgroundColor: getSelectionMode == 1 ? '#ad40af' : '#e4e4e4',
+            backgroundColor: getSelectionMode == 1 ? '#1D2667' : '#e4e4e4',
             borderRadius:10,
             justifyContent: 'center',
             alignItems:'center',
         }}
       >
         <Text style={{
-            color: getSelectionMode == 1 ? 'white' : '#ad40af',
+            color: getSelectionMode == 1 ? 'white' : '#1D2667',
             fontSize:14,
             fontFamily:'Rregular',
         }}>{option1}</Text>
@@ -39,14 +39,14 @@ export default function CustomSwitch({
         onPress={() => updateSwitchData(2)}
         style={{
             flex:1,
-            backgroundColor: getSelectionMode == 2 ? '#ad40af' : '#e4e4e4',
+            backgroundColor: getSelectionMode == 2 ? '#1D2667' : '#e4e4e4',
             borderRadius:10,
             justifyContent: 'center',
             alignItems:'center',
         }}
       >
         <Text style={{
-            color: getSelectionMode == 2 ? 'white' : '#ad40af',
+            color: getSelectionMode == 2 ? 'white' : '#1D2667',
             fontSize:14,
             fontFamily:'Rregular',
         }}>{option2}</Text>

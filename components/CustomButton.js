@@ -4,7 +4,7 @@ import { View, Text, TouchableOpacity} from 'react-native';
 export default function CustomButton({label, onPress}) {
   return (
     <TouchableOpacity onPress={onPress}
-    style={{backgroundColor:'#ad40af', padding:20, borderRadius:10, marginBottom:30}}
+    style={{backgroundColor:'#1D2667', padding:15, borderRadius:10, marginBottom:30}}
     >
     <Text style={{
       textAlign:'center',

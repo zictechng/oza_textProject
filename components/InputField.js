@@ -27,7 +27,7 @@ export default function InputField({label, icon,inputType, keyboardType, fieldBu
                    
                  
                   <TouchableOpacity onPress={fieldButtonFunction}>
-                    <Text style={{color:'#ad40af', fontWeight:'700'}}>
+                    <Text style={{color:'#1D2667', fontWeight:'700'}}>
                       {fieldButtonLabel}
                     </Text>
                   </TouchableOpacity>
